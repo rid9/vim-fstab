@@ -1,0 +1,5 @@
+fstab syntax highlighting
+
+Features: 
+  - let fstab_unknown_fs_errors = 0 if you do not want to highlight unknown filesystems as errors
+
