@@ -39,10 +39,14 @@ syn match fsDeviceError /\%([^a-zA-Z0-9_\/#@:\.-]\|^\w\{-}\ze\W\)/ contained
 syn keyword fsDeviceKeyword contained none proc linproc tmpfs devpts devtmpfs sysfs usbfs
 syn keyword fsDeviceKeyword contained LABEL nextgroup=fsDeviceLabel
 syn keyword fsDeviceKeyword contained UUID nextgroup=fsDeviceUUID
+syn keyword fsDeviceKeyword contained PARTLABEL nextgroup=fsDevicePARTLABEL
+syn keyword fsDeviceKeyword contained PARTUUID nextgroup=fsDevicePARTUUID
 syn keyword fsDeviceKeyword contained sshfs nextgroup=fsDeviceSshfs
 syn match fsDeviceKeyword contained /^[a-zA-Z0-9.\-]\+\ze:/
 syn match fsDeviceLabel contained /=[^ \t]\+/hs=s+1 contains=fsOperator
 syn match fsDeviceUUID contained /=[^ \t]\+/hs=s+1 contains=fsOperator
+syn match fsDevicePARTLABEL contained /=[^ \t]\+/hs=s+1 contains=fsOperator
+syn match fsDevicePARTUUID contained /=[^ \t]\+/hs=s+1 contains=fsOperator
 syn match fsDeviceSshfs contained /#[_=[:alnum:]\.\/+-]\+@[a-z0-9._-]\+\a\{2}:[^ \t]\+/hs=s+1 contains=fsOperator
 
 " Mount Point
@@ -245,6 +249,8 @@ if version >= 508 || !exists("did_config_syntax_inits")
 	HiLink fsDeviceKeyword Identifier
 	HiLink fsDeviceLabel String
 	HiLink fsDeviceUUID String
+	HiLink fsDevicePARTLABEL String
+	HiLink fsDevicePARTUUID String
 	HiLink fsDeviceSshfs String
 	HiLink fsFreqPassNumber Number
 
