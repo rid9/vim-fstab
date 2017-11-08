@@ -69,7 +69,7 @@ syn match fsOptionsString /[a-zA-Z0-9_-]\+/
 syn keyword fsOptionsYesNo yes no
 syn cluster fsOptionsCheckCluster contains=fsOptionsExt2Check,fsOptionsFatCheck
 syn keyword fsOptionsSize 512 1024 2048
-syn keyword fsOptionsGeneral async atime auto bind current defaults dev devgid devmode devmtime devuid dirsync exec force fstab kudzu loop mand move noatime noauto noclusterr noclusterw nodev nodevmtime nodiratime noexec nomand norelatime nosuid nosymfollow nouser owner rbind rdonly relatime remount ro rq rw suid suiddir supermount sw sync union update user users xx
+syn keyword fsOptionsGeneral async atime auto bind current defaults dev devgid devmode devmtime devuid dirsync exec force fstab kudzu loop mand move noatime noauto noclusterr noclusterw nodev nodevmtime nodiratime noexec nomand norelatime nosuid nosymfollow nouser owner rbind rdonly relatime remount ro rq rw suid suiddir supermount sw sync union update user users wxallowed xx
 syn match fsOptionsGeneral /_netdev/
 
 " Options: adfs
@@ -142,7 +142,7 @@ syn match fsOptionsKeywords contained /\<\%(dir\|file\|\)_umask=/ nextgroup=fsOp
 syn match fsOptionsKeywords contained /\<\%(session\|part\)=/ nextgroup=fsOptionsNumber
 
 " Options: ffs
-syn keyword fsOptionsKeyWords contained softdep
+syn keyword fsOptionsKeyWords contained noperm softdep
 
 " Options: hpfs
 syn match fsOptionsKeywords contained /\<case=/ nextgroup=fsOptionsHpfsCase
