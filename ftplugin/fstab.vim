@@ -6,14 +6,16 @@
 " Version: 1.0
 "
 " Credits:
-"   Subhaditya Nath <sn03.general@gmail.com>
+"		Subhaditya Nath <sn03.general@gmail.com>
 
 if exists("b:did_ftplugin")
 	finish
 endif
-let b:did_ftplugin = 1
 
 setlocal commentstring=#%s
-let b:undo_ftplugin = "setlocal commentstring<"
 
-" vim: ts=8 ft=vim
+if exists('b:undo_ftplugin')
+	let b:undo_ftplugin .= "|setlocal commentstring<"
+else
+	let b:undo_ftplugin = "setlocal commentstring<"
+endif
