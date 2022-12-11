@@ -2,8 +2,8 @@
 " Language: fstab file
 " Maintainer: Radu Dineiu <radu.dineiu@gmail.com>
 " URL: https://raw.github.com/rid9/vim-fstab/master/syntax/fstab.vim
-" Last Change: 2022 Dec 10
-" Version: 1.5
+" Last Change: 2022 Dec 11
+" Version: 1.6
 "
 " Credits:
 "   David Necas (Yeti) <yeti@physics.muni.cz>
@@ -72,8 +72,12 @@ syn keyword fsOptionsYN y n
 syn keyword fsOptions01 0 1
 syn cluster fsOptionsCheckCluster contains=fsOptionsExt2Check,fsOptionsFatCheck
 syn keyword fsOptionsSize 512 1024 2048
-syn keyword fsOptionsGeneral async atime auto bind current defaults dev devgid devmode devmtime devuid dirsync exec force fstab kudzu loop mand move noatime noauto noclusterr noclusterw nodev nodevmtime nodiratime noexec nomand norelatime nosuid nosymfollow nouser owner rbind rdonly relatime remount ro rq rw suid suiddir supermount sw sync union update user users wxallowed xx nofail failok
+syn keyword fsOptionsGeneral async atime auto bind current defaults dev devgid devmode devmtime devuid dirsync exec force fstab kudzu loop mand move noatime noauto noclusterr noclusterw nodev nodevmtime nodiratime noexec nomand norelatime nosuid nosymfollow nouser owner rbind rdonly relatime remount ro rq rw suid suiddir supermount sw sync union update user users wxallowed xx nofail failok lazytime
 syn match fsOptionsGeneral /_netdev/
+
+syn match fsOptionsKeywords contained /\<x-systemd\.\%(requires\|before\|after\|wanted-by\|required-by\|requires-mounts-for\|idle-timeout\|device-timeout\|mount-timeout\)/ nextgroup=fsOptionsString
+syn match fsOptionsKeywords contained /\<x-systemd\.\%(device-bound\|automount\|makefs\|growfs\|rw-only\)/
+syn match fsOptionsKeywords contained /\<x-initrd\.mount/
 
 syn match fsOptionsKeywords contained /\<cache=/ nextgroup=fsOptionsCache
 syn keyword fsOptionsCache yes no none strict loose fscache mmap
