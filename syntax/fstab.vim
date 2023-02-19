@@ -491,4 +491,4 @@ let b:current_syntax = "fstab"
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
-" vim: ts=8 ft=vim
+" vim: ts=8 noet ft=vim
