@@ -35,7 +35,7 @@ syn match fsOperator /[,=:#]/
 " Device
 syn cluster fsDeviceCluster contains=fsOperator,fsDeviceKeyword,fsDeviceError
 syn match fsDeviceError /\%([^a-zA-Z0-9_\/#@:\.-]\|^\w\{-}\ze\W\)/ contained
-syn keyword fsDeviceKeyword contained none proc linproc tmpfs devpts devtmpfs sysfs usbfs
+syn keyword fsDeviceKeyword contained none proc linproc tmpfs devpts devtmpfs sysfs usbfs tracefs
 syn keyword fsDeviceKeyword contained LABEL nextgroup=fsDeviceLabel
 syn keyword fsDeviceKeyword contained UUID nextgroup=fsDeviceUUID
 syn keyword fsDeviceKeyword contained PARTLABEL nextgroup=fsDevicePARTLABEL
@@ -56,7 +56,7 @@ syn keyword fsMountPointKeyword contained none swap
 " Type
 syn cluster fsTypeCluster contains=fsTypeKeyword,fsTypeUnknown
 syn match fsTypeUnknown /\s\+\zs\w\+/ contained
-syn keyword fsTypeKeyword contained adfs ados affs anon_inodefs atfs audiofs auto autofs bdev befs bfs btrfs binfmt_misc cd9660 ceph cfs cgroup cifs coda coherent configfs cpuset cramfs debugfs devfs devpts devtmpfs dlmfs e2compr ecryptfs efivarfs efs erofs exfat ext2 ext2fs ext3 ext4 f2fs fdesc ffs filecore fuse fuseblk fusectl gfs2 hfs hfsplus hpfs hugetlbfs iso9660 jffs jffs2 jfs kernfs lfs linprocfs mfs minix mqueue msdos ncpfs nfs nfs4 nfsd nilfs2 none ntfs ntfs3 null nwfs ocfs2 omfs overlay ovlfs pipefs portal proc procfs pstore ptyfs pvfs2 qnx4 qnx6 reiserfs ramfs romfs rpc_pipefs securityfs shm smbfs spufs squashfs sockfs sshfs std subfs swap sysfs sysv tcfs tmpfs ubifs udf ufs umap umsdos union usbfs userfs v9fs vfat virtiofs vs3fs vxfs wrapfs wvfs xenfs xenix xfs zisofs zonefs
+syn keyword fsTypeKeyword contained adfs ados affs anon_inodefs atfs audiofs auto autofs bdev befs bfs btrfs binfmt_misc cd9660 ceph cfs cgroup cifs coda coherent configfs cpuset cramfs debugfs devfs devpts devtmpfs dlmfs e2compr ecryptfs efivarfs efs erofs exfat ext2 ext2fs ext3 ext4 f2fs fdesc ffs filecore fuse fuseblk fusectl gfs2 hfs hfsplus hpfs hugetlbfs iso9660 jffs jffs2 jfs kernfs lfs linprocfs mfs minix mqueue msdos ncpfs nfs nfs4 nfsd nilfs2 none ntfs ntfs3 null nwfs ocfs2 omfs overlay ovlfs pipefs portal proc procfs pstore ptyfs pvfs2 qnx4 qnx6 reiserfs ramfs romfs rpc_pipefs securityfs shm smbfs spufs squashfs sockfs sshfs std subfs swap sysfs sysv tcfs tmpfs tracefs ubifs udf ufs umap umsdos union usbfs userfs v9fs vfat virtiofs vs3fs vxfs wrapfs wvfs xenfs xenix xfs zisofs zonefs
 
 " Options
 " -------
