@@ -35,7 +35,7 @@ syn match fsOperator /[,=:#]/
 " Device
 syn cluster fsDeviceCluster contains=fsOperator,fsDeviceKeyword,fsDeviceError
 syn match fsDeviceError /\%([^a-zA-Z0-9_\/#@:\.-]\|^\w\{-}\ze\W\)/ contained
-syn keyword fsDeviceKeyword contained none proc linproc tmpfs devpts devtmpfs sysfs usbfs tracefs
+syn keyword fsDeviceKeyword contained none proc linproc tmpfs devpts devtmpfs sysfs usbfs tracefs overlay
 syn keyword fsDeviceKeyword contained LABEL nextgroup=fsDeviceLabel
 syn keyword fsDeviceKeyword contained UUID nextgroup=fsDeviceUUID
 syn keyword fsDeviceKeyword contained PARTLABEL nextgroup=fsDevicePARTLABEL
@@ -288,8 +288,15 @@ syn match fsOptionsKeywords contained /\<\%(atime_quantum\|preferred_slot\|local
 syn keyword fsOptionsKeywords contained strictatime inode64
 
 " Options: overlay
+syn match fsOptionsKeywords contained /\<\%(index\|uuid\|nfs_export\|metacopy\)=/ nextgroup=fsOptionsOverlayBool
+syn keyword fsOptionsOverlayBool contained on off
+syn match fsOptionsKeywords contained /\<\%(lowerdir\|upperdir\|workdir\)=/ nextgroup=fsOptionsOverlayDir
+syn match fsOptionsOverlayDir contained /[^,[:space:]]*/
 syn match fsOptionsKeywords contained /\<redirect_dir=/ nextgroup=fsOptionsOverlayRedirectDir
 syn keyword fsOptionsOverlayRedirectDir contained on follow off nofollow
+syn match fsOptionsKeywords contained /\<xino=/ nextgroup=fsOptionsOverlayXino
+syn keyword fsOptionsOverlayXino contained on off auto
+syn keyword fsOptionsKeywords contained userxattr volatile
 
 " Options: proc
 syn match fsOptionsKeywords contained /\<\%(hidepid\|subset\)=/ nextgroup=fsOptionsString
@@ -462,7 +469,10 @@ hi def link fsOptionsNumberOctal Number
 hi def link fsOptionsNumberSigned Number
 hi def link fsOptionsOcfs2Coherency String
 hi def link fsOptionsOcfs2ResvLevel Number
+hi def link fsOptionsOverlayBool Boolean
+hi def link fsOptionsOverlayDir String
 hi def link fsOptionsOverlayRedirectDir String
+hi def link fsOptionsOverlayXino String
 hi def link fsOptionsQnx4Bitmap String
 hi def link fsOptionsQnx6Hold String
 hi def link fsOptionsQnx6Sync String
