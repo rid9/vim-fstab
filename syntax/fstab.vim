@@ -80,10 +80,10 @@ syn match fsOptionsKeywords contained /\<x-systemd\.\%(device-bound\|automount\|
 syn match fsOptionsKeywords contained /\<x-initrd\.mount/
 
 syn match fsOptionsKeywords contained /\<cache=/ nextgroup=fsOptionsCache
-syn keyword fsOptionsCache yes no none strict loose fscache mmap
+syn keyword fsOptionsCache contained yes no none strict loose fscache mmap
 
 syn match fsOptionsKeywords contained /\<dax=/ nextgroup=fsOptionsDax
-syn keyword fsOptionsDax inode never always
+syn keyword fsOptionsDax contained inode never always
 
 syn match fsOptionsKeywords contained /\<errors=/ nextgroup=fsOptionsErrors
 syn keyword fsOptionsErrors contained continue panic withdraw remount-ro recover zone-ro zone-offline repair
